@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Database file
 DB_FILE = 'weather_data.db'
-API_KEY = 'your_openweathermap_api_key'
+API_KEY = '749aed609a93bcddcd2221aac3d1b488'
 
 # Ensure database exists
 def init_db():
