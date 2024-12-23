@@ -1,0 +1,48 @@
+---
+- name: Remove Docker and Cleanup
+  hosts: all
+  become: yes
+
+  tasks:
+    #  Stop all Docker containers
+    - name: Stop all Docker containers
+      shell: |
+        docker ps -q | xargs -r docker stop
+      ignore_errors: yes
+
+    #  Remove all Docker containers
+    - name: Remove all Docker containers
+      shell: |
+        docker ps -aq | xargs -r docker rm
+      ignore_errors: yes
+
+    # Uninstall Docker and dependencies
+    - name: Uninstall Docker and dependencies
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: absent
+      ignore_errors: yes
+
+    #  Remove Docker data
+    - name: Remove Docker directories
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /var/lib/docker
+        - /var/lib/containerd
+
+    #  Remove Docker repository
+    - name: Remove Docker apt repository
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        state: absent
+      ignore_errors: yes
+
+    #  Update apt package cache
+    - name: Update apt packages
+      apt:
+        update_cache: yes
