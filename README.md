@@ -91,6 +91,7 @@ To replicate this project, ensure you have the following:
    - Install Docker on target machines.  
    - Pull the Docker image.  
    - Run the application container.
+     
 ![Screenshot 2024-12-23 231521](https://github.com/user-attachments/assets/4d6d9263-e12f-4b8b-987e-4fcaef644817)
 
 ---
