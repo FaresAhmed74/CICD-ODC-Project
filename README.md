@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/11758255-141f-438a-95d3-99cbaf13f274)
 # Simple Web Application Deployment with CI Pipeline
 
 This project demonstrates a complete CI/CD pipeline for deploying a simple Python-based web application. The pipeline is implemented using **Jenkins**, **Docker**, **Vagrant**, and **Ansible**, and automates the build, test, and deployment process across two target machines.
@@ -92,6 +91,7 @@ To replicate this project, ensure you have the following:
    - Install Docker on target machines.  
    - Pull the Docker image.  
    - Run the application container.
+![Screenshot 2024-12-23 231521](https://github.com/user-attachments/assets/4d6d9263-e12f-4b8b-987e-4fcaef644817)
 
 ---
 
