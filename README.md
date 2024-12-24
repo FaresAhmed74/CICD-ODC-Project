@@ -47,7 +47,7 @@ To replicate this project, ensure you have the following:
 ---
 
 ## Setup Instructions
-
+Make sure to download Docker, Ansible and Jenkins first
 ### 1. Create a Docker Image
 - Write a `Dockerfile` to containerize the application.
 - Build the Docker image:
