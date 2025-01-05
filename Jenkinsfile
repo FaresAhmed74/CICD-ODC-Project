@@ -41,16 +41,10 @@ pipeline {
         stage('Setup Vagrant Machines') {
             steps {
                 script {
-                      sh 'chmod 600 vagrant1-key vagrant2-key'
-                    
-                   
-                    sh """
-                        export LC_ALL=en_US.UTF-8
-                        export LANG=en_US.UTF-8
-                        export LANGUAGE=en_US.UTF-8
-                        ansible-playbook -i inventory.yml docker-playbook.yml
-                        """
-                        }
+                      dir('CICD-ODC-Project/ansible-files') {
+                        sh '''
+                            ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory docker_setup.yml
+                        '''
                     }
              }
     }
